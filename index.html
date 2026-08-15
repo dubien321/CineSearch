@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinéSearch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="logo" href="#" aria-label="CinéSearch"> CinéSearch</a>
+      <nav aria-label="Navigation principale">
+        <ul class="main-nav">
+          <li><a href="#films">Films</a></li>
+          <li><a href="#favoris">Favoris <span id="favoriteCount">0</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">CATALOGUE DE FILMS</p>
+        <h1 id="page-title">Trouvez votre film préféré.</h1>
+        <p>Explorez les films populaires, recherchez un titre et sauvegardez vos favoris.</p>
+
+        <form id="searchForm" class="search-form" role="search">
+          <label for="searchInput" class="sr-only">Rechercher un film</label>
+          <input id="searchInput" type="search" placeholder="Rechercher un film..." autocomplete="off">
+          <button type="submit">Rechercher</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="films" class="films-section" aria-labelledby="films-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">CINEMA</p>
+            <h2 id="films-title">Films populaires</h2>
+          </div>
+          <button id="showfavorisButton" class="secondary-button">Mes favoris</button>
+        </div>
+
+        <div id="loader" class="loader-container" aria-live="polite">
+          <div class="loader" aria-hidden="true"></div>
+          <p>Chargement des films...</p>
+        </div>
+
+        <div id="errorMessage" class="message error hidden" role="alert">
+          <h3>Une erreur est survenue</h3>
+          <p id="errorText">Impossible de récupérer les films.</p>
+          <button id="retryButton" class="primary-button">Réessayer</button>
+        </div>
+
+        <p id="resultInfo" class="result-info" aria-live="polite"></p>
+        <div id="moviesGrid" class="movies-grid"></div>
+
+        <div id="emptyMessage" class="message hidden">
+          <h3>Aucun film trouvé</h3>
+          <p>Essayez avec un autre titre.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="favoris" class="favoris-section" aria-labelledby="favoris-title">
+      <div class="container">
+        <p class="section-label">Votre Stockage local</p>
+        <h2 id="favoris-title">Mes films favoris</h2>
+        <div id="favorisGrid" class="movies-grid"></div>
+        <div id="emptyfavoris" class="message">
+          <h3>Vous n'avez pas encore de favoris</h3>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 CinéSearch - Projet JavaScript</p>
+    </div>
+  </footer>
+
+  <dialog id="movieModal" class="movie-modal" aria-labelledby="modalTitle">
+    <button id="closeModalButton" class="modal-close" aria-label="Fermer">×</button>
+    <div id="modalContent"></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
