@@ -1,5 +1,4 @@
 CinéMatch - Application de films
-
 Description
 
 CinéMatch est une application web permettant de rechercher et de découvrir des films à travers une interface interactive.
